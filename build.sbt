@@ -15,7 +15,7 @@ lazy val root = project
   .settings(name := "lucuma-broadcast-channel")
   .settings(
     // shade into another package
-    stOutputPackage := "lucuma",
+    stOutputPackage := "lucuma.bc",
     /* javascript / typescript deps */
     Compile / npmDependencies ++= Seq(
       "broadcast-channel"        -> "3.3.0"
