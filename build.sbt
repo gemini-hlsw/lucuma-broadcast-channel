@@ -12,7 +12,7 @@ inThisBuild(
 
 lazy val root = project
   .in(file("."))
-  .settings(name := "scalajs-broadcast-channel")
+  .settings(name := "lucuma-broadcast-channel")
   .settings(
     // shade into another package
     stOutputPackage := "lucuma",
