@@ -30,3 +30,4 @@ project/metals.sbt
 
 # Hydra
 .hydra/
+gnupg-*
