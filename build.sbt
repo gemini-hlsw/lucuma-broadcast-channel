@@ -18,7 +18,7 @@ lazy val root = project
     stOutputPackage := "lucuma.bc",
     /* javascript / typescript deps */
     Compile / npmDependencies ++= Seq(
-      "broadcast-channel"        -> "3.3.0"
+      "broadcast-channel" -> "3.3.0"
     ),
     stSourceGenMode := SourceGenMode.ResourceGenerator,
     /* disabled because it somehow triggers many warnings */
@@ -38,6 +38,7 @@ lazy val root = project
     sources in (Compile, doc) := Seq(),
     // focus only on these libraries
     stMinimize := Selection.AllExcept("broadcast-channel"),
-    stMinimizeKeep ++= List("BroadcastChannel")
+    stMinimizeKeep ++= List("BroadcastChannel"),
+    libraryDependencies += "org.typelevel" %%% "cats-effect" % "2.3.0"
   )
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
