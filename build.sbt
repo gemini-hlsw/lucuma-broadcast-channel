@@ -41,4 +41,5 @@ lazy val root = project
     stMinimizeKeep ++= List("BroadcastChannel"),
     libraryDependencies += "org.typelevel" %%% "cats-effect" % "2.3.0"
   )
+  .settings(lucumaScalaJsSettings: _*)
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
