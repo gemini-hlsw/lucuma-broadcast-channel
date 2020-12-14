@@ -10,8 +10,7 @@ package object broadcastchannel {
 
   implicit def ToOnMessageHandler[T](f: T => IO[Unit]): OnMessageHandler[T] =
     js.ThisFunction.fromFunction2(
-      (
-        _: lucuma.bc.broadcastChannel.broadcastChannelMod.BroadcastChannel[js.Any],
-        x: T) => f(x).unsafeRunSync(): js.Any
+      (_: lucuma.bc.broadcastChannel.broadcastChannelMod.BroadcastChannel[js.Any], x: T) =>
+        f(x).unsafeRunAsyncAndForget(): js.Any
     ): OnMessageHandler[T]
 }
