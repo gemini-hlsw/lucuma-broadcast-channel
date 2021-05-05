@@ -18,7 +18,7 @@ lazy val root = project
     stOutputPackage := "lucuma.bc",
     /* javascript / typescript deps */
     Compile / npmDependencies ++= Seq(
-      "broadcast-channel" -> "3.3.0"
+      "broadcast-channel" -> "3.5.3"
     ),
     stSourceGenMode := SourceGenMode.ResourceGenerator,
     /* disabled because it somehow triggers many warnings */
@@ -35,11 +35,11 @@ lazy val root = project
         "-Wunused:explicits"
       )
     )),
-    sources in (Compile, doc) := Seq(),
+    Compile / doc / sources := Seq(),
     // focus only on these libraries
     stMinimize := Selection.AllExcept("broadcast-channel"),
     stMinimizeKeep ++= List("BroadcastChannel"),
-    libraryDependencies += "org.typelevel" %%% "cats-effect" % "2.3.0"
+    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.1.0"
   )
   .settings(lucumaScalaJsSettings: _*)
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)

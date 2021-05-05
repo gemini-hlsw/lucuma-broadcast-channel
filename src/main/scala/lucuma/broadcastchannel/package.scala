@@ -2,6 +2,7 @@ package lucuma
 
 import cats.effect.IO
 import scala.scalajs.js
+import cats.effect.unsafe.implicits.global
 
 package object broadcastchannel {
 
@@ -11,6 +12,6 @@ package object broadcastchannel {
   implicit def ToOnMessageHandler[T](f: T => IO[Unit]): OnMessageHandler[T] =
     js.ThisFunction.fromFunction2(
       (_: lucuma.bc.broadcastChannel.broadcastChannelMod.BroadcastChannel[js.Any], x: T) =>
-        f(x).unsafeRunAsyncAndForget(): js.Any
+        f(x).unsafeToPromise(): js.Any
     ): OnMessageHandler[T]
 }
