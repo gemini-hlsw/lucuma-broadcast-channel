@@ -4,7 +4,7 @@ addSbtPlugin("org.scalablytyped.converter" % "sbt-converter" % "1.0.0-beta32")
 
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.2")
 
-addSbtPlugin("edu.gemini" % "sbt-lucuma" % "0.3.7")
+addSbtPlugin("edu.gemini" % "sbt-lucuma" % "0.3.8")
 
 addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.7")
 
