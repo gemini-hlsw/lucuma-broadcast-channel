@@ -5,7 +5,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 inThisBuild(
   Seq(
-    homepage := Some(url("https://github.com/gemini-hlsw/lucuma-svgdotjs")),
+    homepage := Some(url("https://github.com/gemini-hlsw/lucuma-broadcast-channel")),
     Global / onChangedBuildSource := ReloadOnSourceChanges
   ) ++ lucumaPublishSettings
 )
@@ -18,7 +18,7 @@ lazy val root = project
     stOutputPackage := "lucuma.bc",
     /* javascript / typescript deps */
     Compile / npmDependencies ++= Seq(
-      "broadcast-channel" -> "3.5.3"
+      "broadcast-channel" -> "3.7.0"
     ),
     stSourceGenMode := SourceGenMode.ResourceGenerator,
     /* disabled because it somehow triggers many warnings */
