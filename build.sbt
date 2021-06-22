@@ -23,8 +23,6 @@ lazy val root = project
     stSourceGenMode := SourceGenMode.ResourceGenerator,
     /* disabled because it somehow triggers many warnings */
     scalaJSLinkerConfig ~= (_.withSourceMap(false)),
-    // because npm is slow
-    useYarn := true,
     stUseScalaJsDom := true,
     scalacOptions ~= (_.filterNot(
       Set(
