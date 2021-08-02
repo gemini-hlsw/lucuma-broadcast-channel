@@ -16,9 +16,11 @@ lazy val root = project
   .settings(
     // shade into another package
     stOutputPackage := "lucuma.bc",
+    crossScalaVersions := Seq(scalaVersion.value, "3.0.1"),
+    semanticdbEnabled := true,
     /* javascript / typescript deps */
     Compile / npmDependencies ++= Seq(
-      "broadcast-channel" -> "3.7.0"
+      "broadcast-channel" -> "4.1.0"
     ),
     stSourceGenMode := SourceGenMode.ResourceGenerator,
     /* disabled because it somehow triggers many warnings */

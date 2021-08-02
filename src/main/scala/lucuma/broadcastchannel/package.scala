@@ -2,8 +2,9 @@ package lucuma
 
 import cats.effect.IO
 import cats.effect.SyncIO
-import scala.scalajs.js
 import cats.effect.unsafe.implicits.global
+
+import scala.scalajs.js
 
 package object broadcastchannel {
 
