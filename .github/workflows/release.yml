@@ -12,8 +12,7 @@ jobs:
       - uses: olafurpg/setup-gpg@v3
       - name: Publish
         run: |
-          git status
-          sbt ci-release
+          sbt +ci-release
         env:
           PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
