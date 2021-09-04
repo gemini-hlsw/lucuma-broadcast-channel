@@ -39,7 +39,7 @@ lazy val root = project
     // focus only on these libraries
     stMinimize                              := Selection.AllExcept("broadcast-channel"),
     stMinimizeKeep ++= List("BroadcastChannel"),
-    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.2.5"
+    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.2.7"
   )
   .settings(lucumaScalaJsSettings: _*)
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
