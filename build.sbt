@@ -16,7 +16,7 @@ lazy val root = project
   .settings(
     // shade into another package
     stOutputPackage                         := "lucuma.bc",
-    crossScalaVersions                      := Seq(scalaVersion.value, "3.0.2"),
+    crossScalaVersions                      := Seq(scalaVersion.value, "3.1.0"),
     semanticdbEnabled                       := true,
     /* javascript / typescript deps */
     Compile / npmDependencies ++= Seq(
