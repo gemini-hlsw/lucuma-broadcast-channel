@@ -1,3 +1,6 @@
+// Copyright (c) 2016-2022 Association of Universities for Research in Astronomy, Inc. (AURA)
+// For license information see LICENSE or https://opensource.org/licenses/BSD-3-Clause
+
 package lucuma
 
 import cats.effect.IO
@@ -13,7 +16,7 @@ package object broadcastchannel {
 
   implicit def ioToOnMessageHandler[T](f: T => IO[Unit]): OnMessageHandler[T] =
     js.ThisFunction.fromFunction2(
-      (_: lucuma.bc.broadcastChannel.broadcastChannelMod.BroadcastChannel[js.Any], x: T) =>
+      (_: lucuma.bc.broadcastChannel.broadcastChannelMod.BroadcastChannel[Any], x: T) =>
         f(x).unsafeRunAndForget(): js.Any
     ): OnMessageHandler[T]
 
