@@ -3,12 +3,8 @@ enablePlugins(ScalablyTypedConverterGenSourcePlugin)
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-inThisBuild(
-  Seq(
-    homepage                      := Some(url("https://github.com/gemini-hlsw/lucuma-broadcast-channel")),
-    Global / onChangedBuildSource := ReloadOnSourceChanges
-  ) ++ lucumaPublishSettings
-)
+ThisBuild / tlBaseVersion      := "0.4"
+ThisBuild / crossScalaVersions := Seq("2.13.8", "3.1.0")
 
 lazy val root = project
   .in(file("."))
@@ -16,8 +12,6 @@ lazy val root = project
   .settings(
     // shade into another package
     stOutputPackage                         := "lucuma.bc",
-    crossScalaVersions                      := Seq(scalaVersion.value, "3.1.0"),
-    semanticdbEnabled                       := true,
     /* javascript / typescript deps */
     Compile / npmDependencies ++= Seq(
       "broadcast-channel" -> "4.1.0"
@@ -26,20 +20,12 @@ lazy val root = project
     /* disabled because it somehow triggers many warnings */
     scalaJSLinkerConfig ~= (_.withSourceMap(false)),
     stUseScalaJsDom                         := true,
-    scalacOptions ~= (_.filterNot(
-      Set(
-        // By necessity facades will have unused params
-        "-Wdead-code",
-        "-Wunused:params",
-        "-Wunused:imports",
-        "-Wunused:explicits"
-      )
-    )),
+    tlFatalWarnings                         := false,
     Compile / doc / sources                 := Seq(),
     // focus only on these libraries
     stMinimize                              := Selection.AllExcept("broadcast-channel"),
     stMinimizeKeep ++= List("BroadcastChannel"),
-    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.3.5"
+    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.3.4",
+    coverageEnabled                         := coverageEnabled.value && !tlIsScala3.value
   )
-  .settings(lucumaScalaJsSettings: _*)
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
