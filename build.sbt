@@ -3,8 +3,9 @@ enablePlugins(ScalablyTypedConverterGenSourcePlugin)
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-ThisBuild / tlBaseVersion      := "0.4"
-ThisBuild / crossScalaVersions := Seq("2.13.8", "3.1.0")
+ThisBuild / tlBaseVersion       := "0.4"
+ThisBuild / tlCiReleaseBranches := Seq("main")
+ThisBuild / crossScalaVersions  := Seq("2.13.8", "3.1.0")
 
 lazy val root = project
   .in(file("."))
