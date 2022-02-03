@@ -5,7 +5,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 ThisBuild / tlBaseVersion       := "0.4"
 ThisBuild / tlCiReleaseBranches := Seq("main")
-ThisBuild / crossScalaVersions  := Seq("2.13.8", "3.1.0")
+ThisBuild / crossScalaVersions  := Seq("2.13.8", "3.1.1")
 
 lazy val root = project
   .in(file("."))
@@ -15,7 +15,7 @@ lazy val root = project
     stOutputPackage                         := "lucuma.bc",
     /* javascript / typescript deps */
     Compile / npmDependencies ++= Seq(
-      "broadcast-channel" -> "4.1.0"
+      "broadcast-channel" -> "4.10.0"
     ),
     stSourceGenMode                         := SourceGenMode.ResourceGenerator,
     /* disabled because it somehow triggers many warnings */
