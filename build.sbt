@@ -3,7 +3,7 @@ enablePlugins(ScalablyTypedConverterGenSourcePlugin)
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-ThisBuild / tlBaseVersion      := "0.3"
+ThisBuild / tlBaseVersion      := "0.4"
 ThisBuild / crossScalaVersions := Seq("2.13.8", "3.1.0")
 
 lazy val root = project
