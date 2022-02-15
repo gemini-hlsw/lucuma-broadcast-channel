@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "broadcast-channel": "^4.10.0"
+  }
+}
