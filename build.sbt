@@ -26,7 +26,7 @@ lazy val root = project
     // focus only on these libraries
     stMinimize                              := Selection.AllExcept("broadcast-channel"),
     stMinimizeKeep ++= List("BroadcastChannel"),
-    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.3.4",
+    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.3.6",
     coverageEnabled                         := coverageEnabled.value && !tlIsScala3.value
   )
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
