@@ -13,10 +13,6 @@ lazy val root = project
   .settings(
     // shade into another package
     stOutputPackage                         := "lucuma.bc",
-    /* javascript / typescript deps */
-    Compile / npmDependencies ++= Seq(
-      "broadcast-channel" -> "4.10.0"
-    ),
     stSourceGenMode                         := SourceGenMode.ResourceGenerator,
     /* disabled because it somehow triggers many warnings */
     scalaJSLinkerConfig ~= (_.withSourceMap(false)),
