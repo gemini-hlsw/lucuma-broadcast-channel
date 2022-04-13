@@ -5,7 +5,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 ThisBuild / tlBaseVersion       := "0.4"
 ThisBuild / tlCiReleaseBranches := Seq("main")
-ThisBuild / crossScalaVersions  := Seq("2.13.8", "3.1.1")
+ThisBuild / crossScalaVersions  := Seq("2.13.8", "3.1.2")
 
 lazy val root = project
   .in(file("."))
@@ -26,7 +26,7 @@ lazy val root = project
     // focus only on these libraries
     stMinimize                              := Selection.AllExcept("broadcast-channel"),
     stMinimizeKeep ++= List("BroadcastChannel"),
-    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.3.10",
+    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.3.11",
     coverageEnabled                         := coverageEnabled.value && !tlIsScala3.value
   )
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
