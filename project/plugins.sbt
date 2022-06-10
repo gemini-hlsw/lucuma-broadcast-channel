@@ -5,4 +5,4 @@ resolvers += MavenRepository("sonatype-s01-snapshots",
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 addSbtPlugin("org.scalablytyped.converter" % "sbt-converter"  % "1.0.0-beta37")
-addSbtPlugin("edu.gemini"                  % "sbt-lucuma-lib" % "0.6-16bd6e7-SNAPSHOT")
+addSbtPlugin("edu.gemini"                  % "sbt-lucuma-lib" % "0.8.4-2-d78f6f4-SNAPSHOT")
