@@ -5,7 +5,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 ThisBuild / tlBaseVersion       := "0.4"
 ThisBuild / tlCiReleaseBranches := Seq("main")
-ThisBuild / crossScalaVersions  := Seq("2.13.8", "3.1.2")
+ThisBuild / crossScalaVersions  := Seq("2.13.8", "3.1.3")
 
 lazy val root = project
   .in(file("."))
