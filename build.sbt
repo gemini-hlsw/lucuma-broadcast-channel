@@ -3,9 +3,9 @@ enablePlugins(ScalablyTypedConverterGenSourcePlugin)
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-ThisBuild / tlBaseVersion       := "0.4"
+ThisBuild / tlBaseVersion       := "0.5"
 ThisBuild / tlCiReleaseBranches := Seq("main")
-ThisBuild / crossScalaVersions  := Seq("2.13.8", "3.1.2")
+ThisBuild / crossScalaVersions  := Seq("3.3.1")
 
 lazy val root = project
   .in(file("."))
@@ -15,7 +15,7 @@ lazy val root = project
     stOutputPackage                         := "lucuma.bc",
     /* javascript / typescript deps */
     Compile / npmDependencies ++= Seq(
-      "broadcast-channel" -> "4.10.0"
+      "broadcast-channel" -> "5.3.0"
     ),
     stSourceGenMode                         := SourceGenMode.ResourceGenerator,
     /* disabled because it somehow triggers many warnings */
@@ -26,7 +26,7 @@ lazy val root = project
     // focus only on these libraries
     stMinimize                              := Selection.AllExcept("broadcast-channel"),
     stMinimizeKeep ++= List("BroadcastChannel"),
-    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.3.14",
+    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.5.1",
     coverageEnabled                         := coverageEnabled.value && !tlIsScala3.value
   )
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
