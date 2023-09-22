@@ -10,11 +10,27 @@ import cats.effect.unsafe.implicits.global
 import scala.Conversion
 import scala.annotation.targetName
 import scala.scalajs.js
+import scala.scalajs.js.annotation.JSImport
 
 package object broadcastchannel {
 
-  type BroadcastChannel[T] = lucuma.bc.broadcastChannel.typesBroadcastChannelMod.BroadcastChannel[T]
-  type OnMessageHandler[T] = lucuma.bc.broadcastChannel.typesBroadcastChannelMod.OnMessageHandler[T]
+  type OnMessageHandler[T] =
+    (js.ThisFunction1[ /* this */ BroadcastChannel[Any], /* ev */ T, Any]) | Null
+
+  @JSImport("broadcast-channel", "BroadcastChannel")
+  @js.native
+  class BroadcastChannel[T](val name: String) extends js.Object {
+
+    def close(): js.Promise[Unit] = js.native
+
+    val id: Double = js.native
+
+    val isClosed: Boolean = js.native
+
+    var onmessage: OnMessageHandler[T] = js.native
+
+    def postMessage(msg: T): js.Promise[Unit] = js.native
+  }
 
   given [T]: Conversion[T => IO[Unit], OnMessageHandler[T]] = (f: T => IO[Unit]) =>
     ioToOnMessageHandler(f)

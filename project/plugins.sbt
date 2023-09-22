@@ -1,4 +1,3 @@
-addSbtPlugin("org.scalablytyped.converter" % "sbt-converter" % "1.0.0-beta42")
-
 val sbtLucumaVersion = "0.11.7"
-addSbtPlugin("edu.gemini" % "sbt-lucuma-lib" % sbtLucumaVersion)
+addSbtPlugin("edu.gemini"    % "sbt-lucuma-lib"      % sbtLucumaVersion)
+addSbtPlugin("ch.epfl.scala" % "sbt-scalajs-bundler" % "0.21.1")
